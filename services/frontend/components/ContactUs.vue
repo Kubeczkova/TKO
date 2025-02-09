@@ -1,8 +1,6 @@
 <template>
+  <h1>Kontaktujte nás!</h1>
   <v-card>
-      <v-card-title>
-        <h1>Kontaktujte nás!</h1>
-      </v-card-title>
   <v-form v-model="valid" @submit="sendContact">
     <v-container>
       <v-row>
@@ -75,5 +73,13 @@ function sendContact() {
 </script>
 
 <style scoped>
-
+h1 {
+  font-family: 'Playfair Display', serif; /* Or a similar elegant font */
+  font-size: 3rem;
+  color: #333; /* Dark gray */
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
 </style>

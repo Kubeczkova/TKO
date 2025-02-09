@@ -5,7 +5,7 @@
          class="d-flex d-sm-none"
      />
       <span class="mdi mdi-dance-ballroom" style="font-size: 60px"></span>
-      Taneční klub ostrava
+      Taneční klub Ostrava
           <v-tabs
             v-model="tab"
             align-with-title

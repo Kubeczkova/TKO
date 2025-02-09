@@ -4,17 +4,19 @@
     style="margin-top: -80px"
   >
     <div class="d-flex flex-column fill-height justify-center align-center text-white">
-      <h1 class="text-h4 font-weight-thin mb-4">
+      <h1 class="text-h3 font-weight-thin mb-4">
         Taneční klub Ostrava
       </h1>
-      <h4 class="subheading">
+      <h2 class="subheading">
         Naučíme Vás tančit!
-      </h4>
+      </h2>
     </div>
   </v-parallax>
+  <news />
+  <advantages/>
+  <courses />
+  <about />
   <trainers/>
-  <v-divider />
   <references/>
-  <v-divider />
   <contact-us/>
 </template>

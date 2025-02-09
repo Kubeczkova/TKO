@@ -1,9 +1,5 @@
 <template>
-  <v-card>
-    <v-card-title>
-      <h1>Reference</h1>
-    </v-card-title>
-    <v-card-item>
+  <h1>Reference</h1>
       <v-expansion-panels class="pa-4" variant="popout">
     <v-expansion-panel
       v-for="(reference, id) in references"
@@ -36,39 +32,44 @@
             md="3"
             sm="5"
           >
-            <strong v-html="reference.name" style="font-size: 20px"></strong>
-            <div>
-            <v-rating
-              readonly
-              :length="5"
-              :size="20"
-              :model-value="5"
-             />
-            </div>
+            <h2>{{ reference.name }}</h2>
+            <div class="subtitle">{{ reference.title }}</div>
           </v-col>
         </v-row>
       </v-expansion-panel-title>
 
       <v-expansion-panel-text>
-        <v-card-text v-text="reference.desc"></v-card-text>
+        <div class="subtitle">{{ reference.desc }}</div>
       </v-expansion-panel-text>
     </v-expansion-panel>
   </v-expansion-panels>
-    </v-card-item>
-  </v-card>
 </template>
 <script setup lang="ts">
 
 const references = [
-  {id: 1, avatar: "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460", name: "Alenka", desc: "Dlouhý popisek"},
   {
-    id: 2, avatar: "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460",
+    id: 1,
+    avatar: "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460",
+    title: "Členka tanečního klubu",
+    name: "Alenka",
+    desc: "Dlouhý popisek"},
+  {
+    id: 2,
+    avatar: "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460",
+    title: "Členka tanečního klubu",
     name: "Pepík",
     desc: "Dlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisek"
   },
-  {id: 3, avatar: "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460", name: "Davídek", desc: "Dlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekisek"},
   {
-    id: 4, avatar: "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460",
+    id: 3,
+    avatar: "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460",
+    title: "Občasný zájemce individuálního cvičení",
+    name: "Davídek",
+    desc: "Dlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekisek"},
+  {
+    id: 4,
+    avatar: "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460",
+    title: "Trenér",
     name: "Franta",
     desc: "Dlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisekDlouhý popisek"
   },
@@ -77,5 +78,26 @@ const references = [
 </script>
 
 <style scoped>
+h1 {
+  font-family: 'Playfair Display', serif; /* Or a similar elegant font */
+  font-size: 3rem;
+  color: #333; /* Dark gray */
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  color: #666; /* Light gray */
+}
+
+.subtitle {
+  font-family: 'Playfair Display', serif; /* Or a similar elegant font */
+  font-size: 1rem;
+  color: #333; /* Dark gray */
+}
 
 </style>
