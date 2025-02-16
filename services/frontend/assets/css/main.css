@@ -46,6 +46,24 @@ h5 {
   margin-top: 1rem;
 }
 
+.sheet__box {
+  min-width: 25rem;
+  margin-left: calc(20% - 2.5rem);
+  margin-right: calc(20% - 2.5rem);
+}
+
+.app__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #333; /* Light gray */
+}
+
+.app__tab {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #CF3476; /* Light gray */
+}
+
 .to_left {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;

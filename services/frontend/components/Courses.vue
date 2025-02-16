@@ -1,5 +1,5 @@
 <template>
-  <h1>Kurzy - cena</h1>
+  <h1 id="courses">Kurzy - cena</h1>
   <h2>Vyberte, co Vám nejlépe vyhovuje</h2>
 
   <v-row>

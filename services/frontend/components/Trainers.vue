@@ -1,5 +1,5 @@
 <template>
-  <h1>Naši trenéři a lektoři</h1>
+  <h1 id="trainers">Naši trenéři a lektoři</h1>
   <h2>Seznamte se s námi!</h2>
     <v-row style="margin-bottom: 2rem;">
       <v-col class="text-center" cols="12" md="3" v-for="lector in lectors" :key="lector.id">

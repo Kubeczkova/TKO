@@ -3,7 +3,7 @@
     src="https://www.danceus.org/parse/files/Bjy5anNVI0Q81M8bmrwIiuU20x4kepQTxzDBfqpR/70d831b8f51edc1f6e1a4320d52f164b_latin-dance.jpg"
     class="about__parallax"
   >
-    <v-container fluid fill-height>
+    <v-container fluid fill-height id="about">
       <v-row align="center" justify="center">
         <v-col
           cols="12"

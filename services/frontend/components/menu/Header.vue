@@ -1,24 +1,21 @@
 <template>
     <v-layout>
-      <v-app-bar
-        color="primary"
-        style="position: sticky"
-      >
+      <v-app-bar style="position: fixed">
         <v-app-bar-nav-icon
             @click="drawer = !drawer"
             class="d-flex d-sm-none"
         />
-        <a href=""><big-icon icon="mdi-dance-ballroom" /></a>
-        <v-app-bar-title>Taneční klub Ostrava</v-app-bar-title>
+        <a href="/"><big-icon icon="mdi-dance-ballroom" /></a>
+        <v-app-bar-title class="app__title">Taneční klub Ostrava</v-app-bar-title>
 
         <v-tabs
           v-for="(tab, index) in tabs" :key="index"
           v-model="currentTab"
           align-with-title
-          class="d-none d-sm-flex"
-          color="color"
+          class="d-none d-sm-flex app__tab"
         >
-          <v-tab :text="tab.name" :value="tab.name" @click="useGoTo(tab.ref)"></v-tab>
+          <v-tab v-if="tab.ref" :text="tab.name" :value="tab.name" @click="useGoTo(tab.ref)"></v-tab>
+          <v-tab v-if="tab.href" :text="tab.name" :value="tab.name" :href="tab.href"></v-tab>
         </v-tabs>
 
 
@@ -101,12 +98,12 @@ async function useGoTo (selector: string, props: {offset? :number} = {}): Promis
 const currentTab = ref({name: 'O nás', ref: "#about", href: "o-nas"});
 const drawer = ref(null)
 const tabs = [
-  {name: 'O nás', ref: "#about", href: "o-nas"},
-  {name: "Trenéři", ref: "#trainers", href: "treneri"},
-  {name: 'Kurzy', ref: "#courses", href: "kurzy"},
-  {name: 'Galerie', ref: "#gallery", href: "galerie"},
-  {name: 'Aktuality', ref: "#article", href: "clanky"},
-  {name: 'Kontakty', ref: "#contact", href: "kontakt"},
+  {name: 'O nás', ref: "#about", href: ""},
+  {name: "Trenéři", ref: "#trainers", href: ""},
+  {name: 'Kurzy', ref: "#courses", href: ""},
+  {name: 'Galerie', ref: "", href: "/galerie"},
+  {name: 'Aktuality', ref: "#article", href: ""},
+  {name: 'Kontakty', ref: "", href: "/kontakty"},
 ]
 
 // import { useTheme } from 'vuetify'

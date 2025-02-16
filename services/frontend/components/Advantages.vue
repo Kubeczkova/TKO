@@ -1,7 +1,7 @@
 <template>
   <h1>Co dostanete s tanečním klubem</h1>
   <h2>Výhody tanečníka</h2>
-  <card
+  <v-card
     v-for="advantage in advantages"
     :key="advantage.id"
     class="advantage"
@@ -19,7 +19,7 @@
     <v-card-text class="advantage__text">
       {{ advantage.subtitle }}
     </v-card-text>
-  </card>
+  </v-card>
 </template>
 <script setup lang="ts">
 import './assets/css/main.css'

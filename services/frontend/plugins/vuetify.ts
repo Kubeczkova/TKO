@@ -5,9 +5,13 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import {VIcon} from "vuetify/components";
+import {VCalendar} from "vuetify/labs/VCalendar";
 
 export default defineNuxtPlugin((app) => {
   const vuetify = createVuetify({
+    components: {
+      VCalendar,
+    },
     icons: {  // https://pictogrammers.com/library/mdi/icon/youtube/
       defaultSet: 'mdi',
     },
@@ -52,6 +56,14 @@ export default defineNuxtPlugin((app) => {
         style: [{ margin: '20px', 'font-size': '60px'}]
       },
     },
+    locale: {
+      locale: 'cs',
+    },
+    date: {
+      locale: {
+        cs: 'cs-CZ',
+      }
+    }
   })
 
 

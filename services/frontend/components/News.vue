@@ -1,5 +1,5 @@
 <template>
-  <h1>Aktuality</h1>
+  <h1 id="article">Aktuality</h1>
   <h2>Přečtěte si aktuality z našeho klubu</h2>
     <v-row>
       <v-col
@@ -49,14 +49,7 @@ const articles = [
     autor: "Bebloid Obecný",
     date: "2. 2. 2025",
     title: "David potrolil soutěž",
-    src: "https://melbourneentertainmentco.com.au/wp-content/uploads/2020/04/Juan-and-Jess-600x600-profile.jpg",
-    desc: "V neděli 2. 2. David potrolil sambu, kde místo tančení lítal jako zmatená včelka. Terka, ačkoliv před soutěží velice zmatkovala a sebepoškozovala se, tak na parketě předvedla výborné představení. Na další trolení se můžeme všichni těšit do Brna na konci tohoto měsíce. "
-  },
-  {
-    autor: "Bebloid Obecný",
-    date: "2. 2. 2025",
-    title: "David potrolil soutěž",
-    src: "https://melbourneentertainmentco.com.au/wp-content/uploads/2020/04/Juan-and-Jess-600x600-profile.jpg",
+    src: "/terka&david.jpg",
     desc: "V neděli 2. 2. David potrolil sambu, kde místo tančení lítal jako zmatená včelka. Terka, ačkoliv před soutěží velice zmatkovala a sebepoškozovala se, tak na parketě předvedla výborné představení. Na další trolení se můžeme všichni těšit do Brna na konci tohoto měsíce. "
   },
 ]

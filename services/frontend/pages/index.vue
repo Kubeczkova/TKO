@@ -11,10 +11,13 @@
       </h2>
     </div>
   </v-parallax>
-  <advantages id="advantages"/>
-  <courses id="courses"/>
-  <news id="article"/>
-  <about id="about"/>
-  <trainers id="trainers"/>
-  <contact-us id="contact"/>
+  <calendar/>
+  <news/>
+  <trainers/>
+  <about/>
+  <advantages/>
+  <courses/>
+  <contact-us/>
 </template>
+<script setup lang="ts">
+</script>
