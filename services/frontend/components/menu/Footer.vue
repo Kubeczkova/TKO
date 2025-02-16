@@ -8,7 +8,7 @@
           cols="12"
           md="4"
         >
-          <h4>Kontakt</h4>
+          <h5>Kontakt</h5>
           <v-divider :thickness="3" />
           <div class="footer-text">Tomáš Ožana</div>
           <div class="footer-text">Zimmlerova 2893/47, Ostrava</div>
@@ -20,27 +20,26 @@
           cols="12"
           md="4"
         >
-          <h4>Tréningové hodiny</h4>
+          <h5>Tréningové hodiny</h5>
           <v-divider :thickness="3" />
-          <div class="footer-text">Pondělí: <span class="timespan">16:30 - 18:30 (VS)</span></div>
-          <div class="footer-text">Úterý: <span class="timespan">16:30 - 18:30 (VS)</span></div>
-          <div class="footer-text">Středa: <span class="timespan">16:30 - 18:30 (VS)</span></div>
-          <div class="footer-text">Čtvrtek: <span class="timespan">16:30 - 18:30 (VS)</span></div>
-          <div class="footer-text">Pátek: <span class="timespan">16:30 - 18:30 (VS)</span></div>
-          <div class="footer-text">Sobota: <span class="timespan">16:30 - 18:30 (VS)</span></div>
-          <div class="footer-text">Neděle: <span class="timespan">16:30 - 18:30 (VS)</span></div>
+          <div class="to_left">Pondělí: <span class="to_right">16:30 - 18:30 (VS)</span></div>
+          <div class="to_left">Úterý: <span class="to_right">16:30 - 18:30 (VS)</span></div>
+          <div class="to_left">Středa: <span class="to_right">16:30 - 18:30 (VS)</span></div>
+          <div class="to_left">Čtvrtek: <span class="to_right">16:30 - 18:30 (VS)</span></div>
+          <div class="to_left">Pátek: <span class="to_right">16:30 - 18:30 (VS)</span></div>
+          <div class="to_left">Sobota: <span class="to_right">16:30 - 18:30 (VS)</span></div>
+          <div class="to_left">Neděle: <span class="to_right">16:30 - 18:30 (VS)</span></div>
         </v-col>
 
         <v-col
           cols="12"
           md="4"
         >
-          <h4>Sociální sítě</h4>
+          <h5>Sociální sítě</h5>
           <v-divider :thickness="3" />
-<!--          https://pictogrammers.com/library/mdi/icon/youtube/-->
-          <span class="mdi mdi-facebook" style="font-size: 60px"></span>
-          <span class="mdi mdi-instagram" style="font-size: 60px"></span>
-          <span class="mdi mdi-youtube" style="font-size: 60px"></span>
+          <big-icon icon="mdi-facebook" />
+          <big-icon icon="mdi-instagram" />
+          <big-icon icon="mdi-youtube" />
         </v-col>
       </v-row>
       <v-divider :thickness="3" style="margin-top: 60px" />
@@ -60,32 +59,6 @@
   </v-footer>
 </template>
 <script setup lang="ts">
+import './assets/css/main.css'
 
 </script>
-
-<style scoped>
-h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: #aaa; /* Light gray */
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-h5 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  color: #aaa; /* Light gray */
-  margin-top: 1rem;
-}
-
-.footer-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  color: #aaa; /* Light gray */
-}
-
-.timespan {
-  float: right; /* Aligns the timespan to the right */
-}
-</style>

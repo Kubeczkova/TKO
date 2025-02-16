@@ -1,0 +1,21 @@
+Nastylovat:
+- header nedrží
+- footer
+- lazyload načítat o něco dříve (neli zrušit alespoň mimo galerii)
+
+Naprogramovat:
+- tlačítko "načíst další aktuality" v komponentě News (možná přidat i novou stránku /aktuality
+- přidat kalendář
+- kotvičky
+- přidat v galerii zvětsovač na obrázky
+- přidat backend
+- přidat databázi
+- přidat api
+- přidat volání na api
+
+Naplánovat:
+- kurzy + cena: vyskakovací okno na rezervaci s jménem lekce? jak to vyřešit s kalendářem? (stránka /rezervace)
+- změnit (logicky) pořadí komponent na hlavní stránce
+
+Čeká na Ondru:
+- Důležité kontakty + obrázky jak se dostat nebo vzdálenosti od městské dopravy? přidat do googlu

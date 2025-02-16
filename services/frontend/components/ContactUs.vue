@@ -1,63 +1,67 @@
 <template>
-  <h1>Kontaktujte nás!</h1>
-  <v-card>
-  <v-form v-model="valid" @submit="sendContact">
-    <v-container>
-      <v-row>
-        <v-col
-          cols="12"
-          md="4"
-        >
-          <v-text-field
-            v-model="fullName"
-            label="Jméno a příjmení"
-          ></v-text-field>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="4"
-        >
-          <v-text-field
-            v-model="email"
-            label="Emailová adresa *"
-            required
-          ></v-text-field>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="4"
-        >
-          <v-text-field
-            v-model="phone"
-            label="Telefonní číslo"
-          ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <v-textarea
-            v-model="textField"
-            label="Váš dotaz *"
-            required
-          />
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <v-btn
-            type="submit"
+  <v-card class="contact">
+    <v-form v-model="valid" @submit="sendContact">
+      <v-container>
+        <v-card-title class="contact__title">Kontaktujte nás!</v-card-title>
+        <v-row>
+          <v-col
+            cols="12"
+            md="4"
           >
-            Poslat
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-form>
-    </v-card>
+            <v-text-field
+              v-model="fullName"
+              label="Jméno"
+              variant="underlined"
+            ></v-text-field>
+          </v-col>
+
+          <v-col
+            cols="12"
+            md="4"
+          >
+            <v-text-field
+              v-model="email"
+              label="Emailová adresa"
+              variant="underlined"
+            ></v-text-field>
+          </v-col>
+
+          <v-col
+            cols="12"
+            md="4"
+          >
+            <v-text-field
+              v-model="phone"
+              label="Telefonní číslo"
+              variant="underlined"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-textarea
+              v-model="textField"
+              label="Váš dotaz *"
+              variant="underlined"
+            />
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-btn
+              class="contact__button"
+              type="submit"
+            >
+              Poslat
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-form>
+  </v-card>
 </template>
 <script setup lang="ts">
+import './assets/css/main.css'
 
 const valid = ref<boolean>(false);
 
@@ -71,15 +75,3 @@ function sendContact() {
 }
 
 </script>
-
-<style scoped>
-h1 {
-  font-family: 'Playfair Display', serif; /* Or a similar elegant font */
-  font-size: 3rem;
-  color: #333; /* Dark gray */
-  text-align: center;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-</style>

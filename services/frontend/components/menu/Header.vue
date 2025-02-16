@@ -1,57 +1,120 @@
 <template>
-    <v-app-bar  style="position: sticky">
-     <v-app-bar-nav-icon
-         @click="drawer = !drawer"
-         class="d-flex d-sm-none"
-     />
-      <span class="mdi mdi-dance-ballroom" style="font-size: 60px"></span>
-      Taneční klub Ostrava
-          <v-tabs
-            v-model="tab"
-            align-with-title
-            class="d-none d-sm-flex"
-          >
-
-            <v-tab
-              v-for="item in items"
-              :key="item"
-            >
-              {{ item }}
-            </v-tab>
-          </v-tabs>
-    </v-app-bar>
-
-    <!-- Add a navigation bar -->
-    <v-navigation-drawer
-      v-model="drawer"
-      absolute
-      fixed
-      temporary
-    >
-      <v-list
-        nav
-        dense
+    <v-layout>
+      <v-app-bar
+        color="primary"
+        style="position: sticky"
       >
-        <v-list-item>
-          <v-list-item v-for="(item, index) in items">
-            <v-list-item-title @click="tab = index">{{ item }}</v-list-item-title>
+        <v-app-bar-nav-icon
+            @click="drawer = !drawer"
+            class="d-flex d-sm-none"
+        />
+        <a href=""><big-icon icon="mdi-dance-ballroom" /></a>
+        <v-app-bar-title>Taneční klub Ostrava</v-app-bar-title>
+
+        <v-tabs
+          v-for="(tab, index) in tabs" :key="index"
+          v-model="currentTab"
+          align-with-title
+          class="d-none d-sm-flex"
+          color="color"
+        >
+          <v-tab :text="tab.name" :value="tab.name" @click="useGoTo(tab.ref)"></v-tab>
+        </v-tabs>
+
+
+<!--        <v-col-->
+<!--          class="text-right"-->
+<!--          @click="toggleTheme"-->
+<!--        >-->
+<!--          <big-icon icon="mdi-lightbulb-cfl"/>-->
+<!--        </v-col>-->
+      </v-app-bar>
+
+      <v-fab
+        :key="currentTab.ref"
+        class="ms-4 mb-4"
+      ></v-fab>
+
+      <v-navigation-drawer
+        v-model="drawer"
+        absolute
+        fixed
+        left
+      >
+        <v-list
+          nav
+          dense
+        >
+          <v-list-item>
+            <v-list-item v-for="(tab, index) in tabs" :key="index">
+              <v-list-item-title @click="useGoTo(tab.ref)">{{ tab.name }}</v-list-item-title>
+            </v-list-item>
           </v-list-item>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+        </v-list>
+      </v-navigation-drawer>
+
+    </v-layout>
 </template>
 
-<script>
-export default {
-  el: '#app',
-  data () {
-    return {
-      drawer: false,
-      tab: null,
-      items: [
-        'O nás', "Trenéři", 'Kurzy', 'Galerie', 'Aktuality', 'Kontakty',
-      ],
+<script setup lang="ts">
+function waitForElement (selector: string, timeout = 2000) : Promise<Element> {
+  return new Promise((resolve, reject) => {
+    const startTime = Date.now();
+    // eslint-disable-next-line prefer-const
+    let observer: MutationObserver;
+
+    function checkElement () {
+      const element = document.querySelector(selector);
+
+      if (element) {
+        resolve(element);
+        observer.disconnect(); // Stop observing DOM changes
+      } else if (Date.now() - startTime >= timeout) {
+        reject(new Error(`Timeout exceeded while waiting for element with selector '${selector}'`));
+        observer.disconnect(); // Stop observing DOM changes
+      }
     }
-  }
+
+    observer = new MutationObserver(checkElement);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    checkElement(); // Check initially in case the element is already present
+  });
 }
+
+
+async function useGoTo (selector: string, props: {offset? :number} = {}): Promise<void> {
+  console.log(selector);
+  let element: Element;
+  try {
+    element = await waitForElement(selector);
+  } catch {
+    // element not found
+    return;
+  }
+  const yOffset = props?.offset ?? -80;
+  const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
+
+const currentTab = ref({name: 'O nás', ref: "#about", href: "o-nas"});
+const drawer = ref(null)
+const tabs = [
+  {name: 'O nás', ref: "#about", href: "o-nas"},
+  {name: "Trenéři", ref: "#trainers", href: "treneri"},
+  {name: 'Kurzy', ref: "#courses", href: "kurzy"},
+  {name: 'Galerie', ref: "#gallery", href: "galerie"},
+  {name: 'Aktuality', ref: "#article", href: "clanky"},
+  {name: 'Kontakty', ref: "#contact", href: "kontakt"},
+]
+
+// import { useTheme } from 'vuetify'
+//
+// const theme = useTheme()
+//
+// function toggleTheme () {
+//   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+// }
+
 </script>
