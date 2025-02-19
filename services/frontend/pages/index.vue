@@ -19,5 +19,7 @@
   <courses/>
   <contact-us/>
 </template>
+
 <script setup lang="ts">
+
 </script>

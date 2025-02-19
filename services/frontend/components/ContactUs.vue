@@ -1,6 +1,6 @@
 <template>
   <v-card class="contact">
-    <v-form v-model="valid" @submit="sendContact">
+    <v-form v-model="valid">
       <v-container>
         <v-card-title class="contact__title">Kontaktujte nás!</v-card-title>
         <v-row>
@@ -51,6 +51,7 @@
             <v-btn
               class="contact__button"
               type="submit"
+              @click.prevent="sendContact"
             >
               Poslat
             </v-btn>
@@ -62,6 +63,7 @@
 </template>
 <script setup lang="ts">
 import './assets/css/main.css'
+import {useAPI} from "~/composables/useAPI";
 
 const valid = ref<boolean>(false);
 
@@ -71,7 +73,15 @@ const phone = ref<string>("");
 const textField = ref<string>("");
 
 function sendContact() {
-  console.log("KONTAKT NEZASLAN");
+  useAPI('create-contact/', {
+    method: "POST",
+    body: {
+      name: fullName.value,
+      email: email.value,
+      phone_number: phone.value,
+      content: textField.value,
+    }
+  });
 }
 
 </script>

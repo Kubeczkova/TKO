@@ -17,6 +17,10 @@
 
 <script setup lang="ts">
 import './assets/css/main.css'
+import {useAPI} from "~/composables/useAPI";
+
+
+const { error, data } = await useAPI('load-events/', {method: "GET"});
 
 const value = [new Date()];
 const events = [

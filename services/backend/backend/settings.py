@@ -46,11 +46,15 @@ DEBUG_TOOLBAR_PANELS = [
 ]
 
 ALLOWED_HOSTS = [
-    "0.0.0.0", "localhost", "127.0.0.1",
+    "localhost",
 ]
 
 INTERNAL_IPS = [
-    "0.0.0.0", "localhost", "127.0.0.1",
+    "localhost",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
 ]
 
 # Application definition
@@ -62,6 +66,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tko.apps.TkoConfig',
     "debug_toolbar",
     'rest_framework',
 ]

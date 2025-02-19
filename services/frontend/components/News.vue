@@ -44,6 +44,11 @@
 <script setup lang="ts">
 import './assets/css/main.css'
 
+import {useAPI} from "~/composables/useAPI";
+
+const { error, data } = await useAPI('load-articles/', {method: "GET"});
+console.log(error.value);
+
 const articles = [
   {
     autor: "Bebloid Obecný",

@@ -1,4 +1,5 @@
 <template>
+  <ClientOnly>
     <v-layout>
       <v-app-bar style="position: fixed">
         <v-app-bar-nav-icon
@@ -49,8 +50,8 @@
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
-
     </v-layout>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">
