@@ -58,6 +58,13 @@ export default defineNuxtPlugin((app) => {
     },
     locale: {
       locale: 'cs',
+      messages: {
+        cs: {
+          calendar: {
+            today: "dnes",
+          }
+        }
+      }
     },
     date: {
       locale: {

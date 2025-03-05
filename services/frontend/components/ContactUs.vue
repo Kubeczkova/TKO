@@ -72,8 +72,8 @@ const email = ref<string>("");
 const phone = ref<string>("");
 const textField = ref<string>("");
 
-function sendContact() {
-  useAPI('create-contact/', {
+async function sendContact() {
+  const { data, error } = await useAPI('create-contact/', {
     method: "POST",
     body: {
       name: fullName.value,

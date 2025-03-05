@@ -14,8 +14,8 @@ class Contact(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    image = models.FileField(upload_to='articles/%Y/%m/%d', null=True)
-    date = models.DateField()
+    image = models.FileField(default="default.png", blank=True)
+    date = models.DateField(auto_now_add=True)
     author = models.CharField(max_length=100)
 
     active_to = models.DateField(null=True, blank=True)  # do not show some invitation after this date

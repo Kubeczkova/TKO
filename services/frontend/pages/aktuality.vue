@@ -1,7 +1,7 @@
 <template v-if="articles">
   <h1 id="article">Aktuality</h1>
   <h2>Přečtěte si aktuality z našeho klubu</h2>
-    <v-row class="articles">
+    <v-row>
       <v-col
         v-for="article in articles"
         :key="article.id"
@@ -41,14 +41,12 @@
       </v-card>
     </v-col>
   </v-row>
-  <v-btn to="/aktuality" class="show_more">
-    <v-icon icon="mdi-chevron-down"/>Dalsí aktuality<v-icon icon="mdi-chevron-down"/>
-  </v-btn>
 </template>
+
 <script setup lang="ts">
 import './assets/css/main.css'
 
-import { useAPI } from "~/composables/useAPI";
+import {useAPI} from "~/composables/useAPI";
 
 interface Article {
   id: number;
@@ -61,14 +59,12 @@ interface Article {
 
 const articles = ref<Article[]>([]);
 
-const { error, data } = await useAPI<Article[]>('load-articles/', {method: "GET"});
+const { error, data } = await useAPI('load-all-articles/', {method: "GET"});
 
 if ( data.value ){
-    articles.value = data.value;
+    articles.value = data.value as Article[];
 }
 else if (error.value) {
   console.error("Error loading articles:", error.value);
 }
-
-
 </script>

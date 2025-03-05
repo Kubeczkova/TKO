@@ -1,7 +1,5 @@
 <template>
-  <v-footer
-    style="background-color: black"
-  >
+  <v-footer class="footer">
     <v-container class="text-white">
       <v-row>
         <v-col
@@ -47,7 +45,7 @@
         <v-col
           style="text-align: left"
         >
-          <h5>Taneční klub Ostrava © 2025</h5>
+          <h5>Taneční klub Ostrava s.r.o. © {{date}}</h5>
         </v-col>
         <v-col
           style="text-align: right"
@@ -61,4 +59,5 @@
 <script setup lang="ts">
 import './assets/css/main.css'
 
+const date = new Date().getFullYear()
 </script>

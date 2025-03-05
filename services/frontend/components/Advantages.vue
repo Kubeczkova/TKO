@@ -1,6 +1,6 @@
 <template>
-  <h1>Co dostanete s tanečním klubem</h1>
-  <h2>Výhody tanečníka</h2>
+  <h1>Přínosy tance: Více než jen pohyb</h1>
+  <h2>Tancem k lepšímu životu</h2>
   <v-card
     v-for="advantage in advantages"
     :key="advantage.id"

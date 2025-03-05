@@ -2,7 +2,7 @@
   <h1 id="courses">Kurzy</h1>
   <h2>Vyberte, co Vám nejlépe vyhovuje</h2>
 
-  <v-row class="pricing">
+  <v-row>
     <v-col
         cols="12"
         md="4"
@@ -14,15 +14,11 @@
         <v-card-subtitle><div class="pricing__subtitle">{{ course.time }}</div></v-card-subtitle>
         <v-card-title><div class="pricing__price">{{ course.price }}</div></v-card-title>
         <v-card-text v-if="course.desc"><div class="pricing__subtitle">{{ course.desc }}</div></v-card-text>
-        <v-btn class="show_more">
-          Kontaktujte nás
-        </v-btn>
+        <v-btn class="show_more"><v-icon icon="mdi-chevron-down"/>Kontaktujte nás<v-icon icon="mdi-chevron-down"/></v-btn>
       </v-card>
     </v-col>
   </v-row>
-<!--  <v-btn to="/kurzy" class="show_more">-->
-<!--    <v-icon icon="mdi-chevron-down"/>Více informací<v-icon icon="mdi-chevron-down"/>-->
-<!--  </v-btn>-->
+  <calendar/>
 </template>
 <script setup lang="ts">
 import './assets/css/main.css'

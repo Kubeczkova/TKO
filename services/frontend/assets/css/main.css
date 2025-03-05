@@ -1,22 +1,22 @@
 @font-face {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-weight: 700;
   font-style: normal;
   font-display: block;
 }
 
 h1 {
-  font-family: 'Playfair Display', serif; /* Or a similar elegant font */
+  font-family: 'Futura', sans-serif;
   font-size: 3rem;
-  color: #333; /* Dark gray */
+  color: #333;
   text-align: center;
   margin-bottom: 1rem;
   margin-top: 2rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 1.5rem;
   color: #CF3476;
   text-align: center;
@@ -24,25 +24,25 @@ h2 {
 }
 
 h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 1.5rem;
-  color: #666; /* Light gray */
+  color: #666;
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
 h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 1rem;
-  color: #666; /* Light gray */
+  color: #666;
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
 h5 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 1rem;
-  color: #aaa; /* Light gray */
+  color: #aaa;
   margin-top: 1rem;
 }
 
@@ -52,25 +52,30 @@ h5 {
   margin-right: calc(20% - 2.5rem);
 }
 
+.app__logo {
+  height: 3.5rem;
+  width: 8rem;
+}
+
 .app__title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 2rem;
-  color: #333; /* Light gray */
+  color: #333;
 }
 
 .app__tab {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 2rem;
-  color: #CF3476; /* Light gray */
+  color: #CF3476;
 }
 
 .to_left {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 1rem;
 }
 
 .to_right {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   float: right;
 }
 
@@ -84,9 +89,9 @@ h5 {
 .contact__title {
   text-align: center;
   font-size: 3rem;
-  color: #333; /* Dark gray */
+  color: #333;
   margin-bottom: 1rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-weight: bold;
 }
 
@@ -96,69 +101,112 @@ h5 {
   background-color: #CF3476;
 }
 
+.articles {
+  margin-left: calc(20% - 2.5rem);
+  margin-right: calc(20% - 2.5rem);
+}
+
 .article {
-  padding: 20px;
+  padding: 10px;
   min-width: 40%;
   border-radius: 15px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  margin: 50px
+  margin-bottom: 1rem;
+}
+
+.article__image {
+  border-radius: 0.5rem;
 }
 
 .article__title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 1.5rem;
-  color: #CF3476; /* Dark gray */
+  color: #CF3476;
   text-align: left;
   margin-top: 0.1rem;
   font-weight: bold;
 }
 
 .article__date {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 0.8rem;
   text-align: left;
 }
 
 .article__text {
-  font-family: 'Playfair Display', serif; /* Or a similar elegant font */
+  font-family: 'Futura', sans-serif;
   font-size: 1rem;
   text-align: left;
-  color: #666; /* Dark gray */
+  min-height: 6rem;
+  color: #666;
 }
 
 .article__sign {
-  font-family: 'Playfair Display', serif; /* Or a similar elegant font */
+  font-family: 'Futura', sans-serif;
   font-size: 1rem;
   float: right;
-  color: #333; /* Dark gray */
+  padding-right: 1rem;
+  color: #333;
+}
+
+.show_more {
+  font-family: 'Futura', sans-serif;
+  text-align: center;
+  color: #CF3476;
+  background: transparent;
+  box-shadow: none;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.show_more:hover {
+  box-shadow: none;
+}
+
+.pricing {
+  margin-left: calc(20% - 2.5rem);
+  margin-right: calc(20% - 2.5rem);
 }
 
 .pricing-box {
-  padding: 20px;
+  padding: 1rem;
   text-align: center;
   min-width: 25rem;
   border-radius: 1rem;
   height: 230px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  margin: 50px
 }
 
-.pricing-box:not(:last-child) {
-  margin: 20px;
+.pricing-box:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
 }
 
 .pricing__price {
-  font-family: 'Playfair Display', serif; /* Or a similar elegant font */
+  font-family: 'Futura', sans-serif;
   font-size: 3.5rem;
-  color: #CF3476; /* Dark gray */
+  color: #CF3476;
   text-align: center;
 }
 
 .pricing__subtitle {
-  font-family: 'Playfair Display', serif; /* Or a similar elegant font */
+  font-family: 'Futura', sans-serif;
   font-size: 1rem;
-  color: #333; /* Dark gray */
+  color: #333;
   text-align: center;
+}
+
+.trainers__parallax {
+  max-height: 34rem;
+  margin-top: 2rem;
+}
+
+.trainers {
+  min-width: 25rem;
+  background: transparent;
+  box-shadow: none;
+  height: 100%;
+  margin-left: calc(20% - 2.5rem);
+  margin-right: calc(20% - 2.5rem);
 }
 
 .advantage {
@@ -172,7 +220,7 @@ h5 {
 }
 
 .advantage__title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   color: #CF3476;
   font-size: 1.5rem;
   font-weight: bold;
@@ -180,34 +228,37 @@ h5 {
 }
 
 .advantage__text {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 1rem;
   color: #333;
 }
 
 .about {
   min-width: 25rem;
-  border-radius: 0;
   background: transparent;
+  box-shadow: none;
+  height: 100%;
+  margin-left: calc(20% - 2.5rem);
+  margin-right: calc(20% - 2.5rem);
 }
 
 .about__parallax {
-  max-height: 36rem;
+  max-height: 30rem;
+  margin-top: 2rem;
 }
 
 .about__title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Futura', sans-serif;
   font-size: 3rem;
   text-align: center;
-  color: #ddd; /* Dark gray */
-  margin-bottom: 1rem;
+  color: #fff;
   margin-top: 1rem;
   font-weight: bold;
 }
 
 .about__subtitle {
-  font-family: 'Playfair Display', serif;
-  color: #CF3476;
+  font-family: 'Futura', sans-serif;
+  color: #FF3D8C;
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 0.5rem;
@@ -215,8 +266,12 @@ h5 {
 }
 
 .about__text {
-  font-family: 'Playfair Display', serif;
-  color: #aaa; /* Dark gray */
+  font-family: 'Futura', sans-serif;
+  color: #ddd;
   font-size: 1.2rem;
   text-align: center;
+}
+
+.footer {
+  background-color: black;
 }

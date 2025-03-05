@@ -1,6 +1,6 @@
 <template>
   <v-parallax
-    src="https://danceostrava.cz/wp-content/uploads/2021/10/IMG_5203-scaled.jpg"
+    src="public/dark-dance.jpg"
   >
     <div class="d-flex flex-column fill-height justify-center">
       <h1 class="text-white">
@@ -11,13 +11,12 @@
       </h2>
     </div>
   </v-parallax>
-  <calendar/>
   <news/>
-  <trainers/>
   <about/>
-  <advantages/>
   <courses/>
-  <contact-us/>
+  <trainers/>
+  <advantages/>
+  <history/>
 </template>
 
 <script setup lang="ts">
