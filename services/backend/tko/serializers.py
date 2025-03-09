@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.utils.timezone import localtime
 
-from tko.models import Contact, Article, Event
+from tko.models import Contact, Article, Event, ArticleImage
 
 
 class ContactSerializer(serializers.ModelSerializer):
@@ -10,12 +10,19 @@ class ContactSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ArticleImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ArticleImage
+        fields = ['image']
+
+
 class ArticleListSerializer(serializers.ModelSerializer):
     date = serializers.SerializerMethodField()
+    images = ArticleImageSerializer(many=True, read_only=True)
 
     class Meta:
         model = Article
-        fields = ["id", "author", "content", "date", "image", "title"]
+        fields = ["id", "author", "content", "date", "image", "title", "images"]
 
     @staticmethod
     def get_date(obj):

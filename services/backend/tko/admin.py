@@ -19,9 +19,15 @@ class ContactAdmin(admin.ModelAdmin):
         return False
 
 
+class ArticleImageInline(admin.TabularInline):  # Or admin.StackedInline for a different layout
+    model = models.ArticleImage
+    extra = 1
+
+
 @admin.register(models.Article)
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ['title', 'date', 'author']
+    inlines = [ArticleImageInline]
 
 
 @admin.register(models.Event)

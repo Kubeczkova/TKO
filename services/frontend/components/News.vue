@@ -12,8 +12,8 @@
         <v-row>
           <v-col>
             <v-img
-              :lazy-src="article.image"
-              :src="article.image"
+              :lazy-src="article.image.image"
+              :src="article.image.image"
               aspect-ratio="1"
               cover
               class="article__image"
@@ -50,10 +50,15 @@ import './assets/css/main.css'
 
 import { useAPI } from "~/composables/useAPI";
 
+interface ArticleImage {
+  image: string;
+}
+
 interface Article {
   id: number;
   title: string;
   image: string;
+  images: ArticleImage[];
   date: string;
   content: string;
   author: string;

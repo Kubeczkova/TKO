@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -14,7 +14,7 @@ class Contact(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    image = models.FileField(default="default.png", blank=True)
+    image = models.FileField(upload_to="images/%Y", default="default.png", blank=True)
     date = models.DateField(auto_now_add=True)
     author = models.CharField(max_length=100)
 
@@ -22,6 +22,14 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ArticleImage(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='images')
+    image = models.FileField(upload_to="images/%Y")
+
+    def __str__(self):
+        return f"Image for {self.article.title}, {self.article.date}"
 
 
 class Event(models.Model):
