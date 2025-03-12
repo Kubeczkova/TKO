@@ -21,7 +21,7 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf.urls.static import static
 from django.conf import settings
 
-from tko.views import ContactView, NewArticleListView, AllArticleListView, EventListView
+from tko.views import ContactView, NewArticleListView, AllArticleListView, EventListView, GalleryView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,7 @@ urlpatterns = [
     path('load-articles/', NewArticleListView.as_view(), name='load-articles'),
     path('load-all-articles/', AllArticleListView.as_view(), name='load-all-articles'),
     path('load-events/', EventListView.as_view(), name='load-events'),
+    path('load-gallery/', GalleryView.as_view(), name='load-gallery'),
 ] + debug_toolbar_urls()
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

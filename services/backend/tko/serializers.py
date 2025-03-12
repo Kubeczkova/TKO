@@ -11,13 +11,20 @@ class ContactSerializer(serializers.ModelSerializer):
 
 
 class ArticleImageSerializer(serializers.ModelSerializer):
+    title = serializers.SerializerMethodField(read_only=True)
+
     class Meta:
         model = ArticleImage
-        fields = ['image']
+        fields = ['image', 'title']
+
+    @staticmethod
+    def get_title(obj):
+        return obj.article.title
 
 
 class ArticleListSerializer(serializers.ModelSerializer):
     date = serializers.SerializerMethodField()
+    image = serializers.SerializerMethodField()
     images = ArticleImageSerializer(many=True, read_only=True)
 
     class Meta:
@@ -27,6 +34,11 @@ class ArticleListSerializer(serializers.ModelSerializer):
     @staticmethod
     def get_date(obj):
         return obj.date.strftime("%-d. %-m. %Y")
+
+    @staticmethod
+    def get_image(obj):
+        main_image = obj.images.order_by("main").first()
+        return main_image.image.url if main_image else None
 
 
 class EventListSerializer(serializers.ModelSerializer):

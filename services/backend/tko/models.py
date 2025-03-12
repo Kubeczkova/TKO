@@ -14,10 +14,8 @@ class Contact(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    image = models.FileField(upload_to="images/%Y", default="default.png", blank=True)
     date = models.DateField(auto_now_add=True)
     author = models.CharField(max_length=100)
-
     active_to = models.DateField(null=True, blank=True)  # do not show some invitation after this date
 
     def __str__(self):
@@ -26,7 +24,8 @@ class Article(models.Model):
 
 class ArticleImage(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='images')
-    image = models.FileField(upload_to="images/%Y")
+    image = models.FileField(upload_to="images/%Y", default="default.png")
+    main = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Image for {self.article.title}, {self.article.date}"

@@ -2,9 +2,10 @@
 
 ## Running
 
-1. `docker compose run --rm frontend npm install`
-2. `docker compose build`
-3. `docker compose up`
+1. create .env from .env.example 
+2. `docker compose run --rm frontend npm install`
+3. `docker compose build`
+4. `docker compose up`
 
 ## Adding new frontend packages
 
