@@ -1,4 +1,9 @@
 from django.db import models
+from wagtail.admin.panels import FieldPanel
+from wagtail.fields import RichTextField
+from wagtail.models import Page
+from datetime import date
+
 
 # Create your models here.
 class Contact(models.Model):
@@ -32,3 +37,21 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class EventPage(Page):
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    color = models.CharField(max_length=100)
+
+    content_panels = Page.content_panels + ["start_date", "end_date", "color"]
+
+
+class ArticlePage(Page):
+    name = models.CharField(max_length=100)
+    content = models.CharField(max_length=500)
+    image = models.ManyToManyField('wagtailimages.Image')
+    date = models.DateField(default=date.today)
+    author = models.CharField(max_length=100)
+
+    content_panels = Page.content_panels + ["name", "content", "image", "date", "author", "expire_at"]

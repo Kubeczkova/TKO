@@ -28,8 +28,8 @@ from django.conf import settings
 from tko.views import ContactView, NewArticleListView, AllArticleListView, EventListView
 
 urlpatterns = [
-    path('django-admin/', admin.site.urls),
-    path('admin/', include(wagtailadmin_urls)),
+    path('', include(wagtailadmin_urls)),
+    path('admin/', admin.site.urls),
     path('create-contact/', ContactView.as_view(), name='create-contact'),
     path('load-articles/', NewArticleListView.as_view(), name='load-articles'),
     path('load-all-articles/', AllArticleListView.as_view(), name='load-all-articles'),
