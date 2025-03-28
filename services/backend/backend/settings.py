@@ -28,7 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str('SECRET_KEY', 'django-insecure-x&7qy$na7*@u_4(izkfaz2yiea9+t(nf&#p9cnlq6x)_)jkacf')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK": lambda request: False,
+    "IS_RUNNING_TESTS": False,
+}
 
 DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.history.HistoryPanel',
@@ -72,6 +76,7 @@ INSTALLED_APPS = [
     'tko.apps.TkoConfig',
     'debug_toolbar',
     'rest_framework',
+    'post_office',
 ]
 
 MIDDLEWARE = [
@@ -115,6 +120,7 @@ DATABASES = {
     'default': env.db('DATABASE_URL')
 }
 
+EMAIL_BACKEND = 'post_office.EmailBackend'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -152,9 +158,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
 
 MEDIA_URL = '/media/'
 

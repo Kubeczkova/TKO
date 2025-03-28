@@ -54,18 +54,30 @@
 
 <script setup lang="ts">
 import { useGoTo } from "~/composables/useGoTo";
+const route = useRoute();
 
 const currentTab = ref({name: 'O nás', ref: "#about", href: "o-nas"});
 const drawer = ref(null)
-const tabs = [
-  {name: 'O nás', ref: "#about", href: ""},
-  {name: "Trenéři", ref: "#trainers", href: ""},
-  {name: 'Kurzy', ref: "#courses", href: ""},
-  {name: 'Galerie', ref: "", href: "/galerie"},
-  {name: 'Aktuality', ref: "#article", href: ""},
-  {name: 'Kontakty', ref: "", href: "/kontakty"},
-]
 
+const homeTabs = [
+  { name: "O nás", ref: "#about", href: "" },
+  { name: "Trenéři", ref: "#trainers", href: "" },
+  { name: "Kurzy", ref: "#courses", href: "" },
+  { name: "Galerie", ref: "", href: "/galerie" },
+  { name: "Aktuality", ref: "#article", href: "" },
+  { name: "Kontakty", ref: "", href: "/kontakty" },
+];
+
+const otherTabs = [
+  { name: "O nás", ref: "", href: "/#about" },
+  { name: "Trenéři", ref: "", href: "/trenery" },
+  { name: "Kurzy", ref: "", href: "/kurzy" },
+  { name: "Galerie", ref: "", href: "/galerie" },
+  { name: "Aktuality", ref: "", href: "/aktuality" },
+  { name: "Kontakty", ref: "", href: "/kontakty" },
+];
+
+const tabs = computed(() => (route.path === "/" ? homeTabs : otherTabs))
 // import { useTheme } from 'vuetify'
 //
 // const theme = useTheme()

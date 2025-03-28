@@ -14,3 +14,4 @@
 ## Adding new backend packages
 
 `docker compose run --rm backend uv add <package>`
+`docker compose build` :)

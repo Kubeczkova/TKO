@@ -1,12 +1,12 @@
 Nastylovat:
 - lazyload načítat o něco dříve (neli zrušit alespoň mimo galerii)
+- mobilní verze
 
-Naprogramovat:
+Frontend:
 - přidat v galerii zvětsovač na obrázky
 
 Naplánovat:
 - kurzy + cena: vyskakovací okno na rezervaci s jménem lekce? jak to vyřešit s kalendářem? (stránka /rezervace)
 
-
-DAVID:
+Backend:
 - přidat posílání mailu panu vrchnímu
