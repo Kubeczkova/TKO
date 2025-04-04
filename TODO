@@ -1,15 +1,13 @@
 Nastylovat:
-- footer
 - lazyload načítat o něco dříve (neli zrušit alespoň mimo galerii)
+- mobilní verze
 
-Naprogramovat:
-- tlačítko "načíst další aktuality" v komponentě News (možná přidat i novou stránku /aktuality
+Frontend:
 - přidat v galerii zvětsovač na obrázky
-- přidat volání na api
+- notyfi
 
 Naplánovat:
 - kurzy + cena: vyskakovací okno na rezervaci s jménem lekce? jak to vyřešit s kalendářem? (stránka /rezervace)
 
-
-DAVID:
+Backend:
 - přidat posílání mailu panu vrchnímu

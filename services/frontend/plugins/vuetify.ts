@@ -49,7 +49,7 @@ export default defineNuxtPlugin((app) => {
     defaults: {
       SmallIcon: {
         color: 'color',
-        style: [{ 'margin-left': '20px', 'margin-top': '15px', 'font-size': '30px'}]
+        style: [{ 'margin-left': '20px', 'font-size': '30px'}]
       },
       BigIcon: {
         color: 'color',

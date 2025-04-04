@@ -6,16 +6,18 @@
     :key="advantage.id"
     class="advantage"
   >
-    <v-row>
-      <v-col cols="12" md="1">
+    <v-row align="center" class="pa-2">
+      <v-col cols="auto">
         <small-icon :icon="advantage.icon" />
       </v-col>
+
       <v-col>
         <v-card-title class="advantage__title">
-          {{advantage.title}}
+          {{ advantage.title }}
         </v-card-title>
       </v-col>
     </v-row>
+
     <v-card-text class="advantage__text">
       {{ advantage.subtitle }}
     </v-card-text>

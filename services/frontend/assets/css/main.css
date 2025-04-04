@@ -20,7 +20,7 @@ h2 {
   font-size: 1.5rem;
   color: #CF3476;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 h3 {
@@ -44,6 +44,17 @@ h5 {
   font-size: 1rem;
   color: #aaa;
   margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem; /* Smaller size for mobile */
+    margin-top: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem; /* Slightly smaller h2 for mobile */
+  }
 }
 
 .sheet__box {
@@ -95,10 +106,31 @@ h5 {
   font-weight: bold;
 }
 
+.contact__dialog__title {
+  font-family: 'Futura', sans-serif;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
 .contact__button {
   width: 100%;
   color: #ffffff;
   background-color: #CF3476;
+}
+
+@media (max-width: 600px) {
+  .v-dialog > .v-card {
+    border-radius: 0 !important;
+    height: 100vh;
+    padding: 1rem;
+  }
+
+  .contact__dialog__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .articles {
@@ -116,6 +148,12 @@ h5 {
 
 .article__image {
   border-radius: 0.5rem;
+}
+
+.carousel__image img {
+  border-radius: 0.5rem;
+  object-fit: contain !important;
+  padding: 1rem;
 }
 
 .article__title {
@@ -164,35 +202,70 @@ h5 {
 }
 
 .pricing {
-  margin-left: calc(20% - 2.5rem);
-  margin-right: calc(20% - 2.5rem);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .pricing-box {
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
-  min-width: 25rem;
+  min-width: 18rem;
   border-radius: 1rem;
-  height: 230px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .pricing-box:hover {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.pricing-content {
+  flex-grow: 1;
+}
+
+.pricing-title {
+  min-height: 3rem;
+}
+
+.pricing-desc {
+  min-height: 3rem;
 }
 
 .pricing__price {
   font-family: 'Futura', sans-serif;
-  font-size: 3.5rem;
+  font-size: 3rem;
+  font-weight: bold;
   color: #CF3476;
-  text-align: center;
+  margin-top: 0.5rem;
 }
 
 .pricing__subtitle {
   font-family: 'Futura', sans-serif;
   font-size: 1rem;
-  color: #333;
-  text-align: center;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .pricing-box {
+    min-width: 100%;
+  }
+
+  .pricing-title,
+  .pricing-desc {
+    min-height: unset; /* Removes forced height to prevent breakage */
+  }
 }
 
 .trainers__parallax {
@@ -201,12 +274,45 @@ h5 {
 }
 
 .trainers {
-  min-width: 25rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
   background: transparent;
   box-shadow: none;
   height: 100%;
-  margin-left: calc(20% - 2.5rem);
-  margin-right: calc(20% - 2.5rem);
+  text-align: center;
+  padding: 2rem;
+}
+
+.trainer-avatar {
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .trainers__parallax {
+    max-height: 30rem;
+  }
+
+  .trainers {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .trainer-avatar {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 .advantage {
@@ -221,6 +327,7 @@ h5 {
 
 .advantage__title {
   font-family: 'Futura', sans-serif;
+  padding: 0.5rem 0;
   color: #CF3476;
   font-size: 1.5rem;
   font-weight: bold;
@@ -229,17 +336,37 @@ h5 {
 
 .advantage__text {
   font-family: 'Futura', sans-serif;
+  padding-bottom: 1rem;
   font-size: 1rem;
   color: #333;
 }
 
+@media (max-width: 600px) {
+  .advantage {
+    min-width: 100%;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+
+  .advantage__title {
+    font-size: 1.3rem;
+  }
+
+  .advantage__text {
+    font-size: 1rem;
+    padding: 0 1.5rem;
+  }
+}
+
 .about {
-  min-width: 25rem;
   background: transparent;
   box-shadow: none;
   height: 100%;
-  margin-left: calc(20% - 2.5rem);
-  margin-right: calc(20% - 2.5rem);
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
 }
 
 .about__parallax {
@@ -247,10 +374,23 @@ h5 {
   margin-top: 2rem;
 }
 
+.history__parallax {
+  max-height: 34rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .history__parallax {
+    max-height: 45rem;
+  }
+}
+
 .about__title {
   font-family: 'Futura', sans-serif;
   font-size: 3rem;
   text-align: center;
+  width: 100%;
+  display: block;
   color: #fff;
   margin-top: 1rem;
   font-weight: bold;
@@ -259,8 +399,10 @@ h5 {
 .about__subtitle {
   font-family: 'Futura', sans-serif;
   color: #FF3D8C;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-align: center;
+  width: 100%;
+  display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
 }
@@ -268,8 +410,29 @@ h5 {
 .about__text {
   font-family: 'Futura', sans-serif;
   color: #ddd;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
+  padding: 0 1rem;
+}
+
+@media (max-width: 600px) {
+  .about {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .about__title {
+    font-size: 1.5rem;
+  }
+
+  .about__subtitle {
+    font-size: 1rem;
+  }
+
+  .about__text {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
 }
 
 .footer {

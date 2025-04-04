@@ -2,24 +2,62 @@
   <h1 id="courses">Kurzy</h1>
   <h2>Vyberte, co Vám nejlépe vyhovuje</h2>
 
-  <v-row class="pricing">
-    <v-col
-        cols="12"
-        md="4"
-        v-for="(course, index) in courses"
-        :key="index"
-    >
-      <v-card class="pricing-box">
-        <h3>{{ course.name }}</h3>
-        <v-card-subtitle><div class="pricing__subtitle">{{ course.time }}</div></v-card-subtitle>
-        <v-card-title><div class="pricing__price">{{ course.price }}</div></v-card-title>
-        <v-card-text v-if="course.desc"><div class="pricing__subtitle">{{ course.desc }}</div></v-card-text>
-        <v-btn class="show_more">
-          Kontaktujte nás
-        </v-btn>
-      </v-card>
-    </v-col>
-  </v-row>
+<v-row class="pricing">
+  <v-col
+      cols="12"
+      sm="6"
+      md="4"
+      lg="3"
+      v-for="(course, index) in courses"
+      :key="index"
+  >
+    <v-card class="pricing-box" @click="openDialog = true; chosenCourse = course">
+      <div class="pricing-content">
+        <h3 class="pricing-title">{{ course.name }}</h3>
+        <v-card-subtitle>
+          <div class="pricing__subtitle">{{ course.time }}</div>
+        </v-card-subtitle>
+        <v-card-title>
+          <div class="pricing__price">{{ course.price }}</div>
+        </v-card-title>
+        <v-card-text v-if="course.desc">
+          <div class="pricing__subtitle pricing-desc">{{ course.desc }}</div>
+        </v-card-text>
+      </div>
+      <v-btn class="show_more">
+        Kontaktujte nás
+      </v-btn>
+    </v-card>
+  </v-col>
+</v-row>
+<template>
+  <v-dialog
+    v-model="openDialog"
+    :fullscreen="$vuetify.display.smAndDown"
+    scrollable
+    transition="dialog-bottom-transition"
+  >
+    <v-card class="contact pa-4">
+      <v-card-title class="contact__dialog__title d-flex align-center">
+        <span class="flex-grow-1 text-center" style="margin-left: 40px;">{{ chosenCourse.name }}</span>
+        <v-btn icon="mdi-close" variant="text" @click="openDialog = false"></v-btn>
+      </v-card-title>
+
+      <v-card-text v-if="chosenCourse.desc" class="text-center">
+        <div class="pricing__subtitle text-body-1">{{ chosenCourse.desc }}</div>
+      </v-card-text>
+
+      <v-divider class="my-4"></v-divider>
+
+      <v-card-title class="contact__dialog__title text-center">
+        Kontaktujte nás!
+      </v-card-title>
+
+      <dialog-contact-form class="mt-2" />
+    </v-card>
+  </v-dialog>
+</template>
+
 <!--  <v-btn to="/kurzy" class="show_more">-->
 <!--    <v-icon icon="mdi-chevron-down"/>Více informací<v-icon icon="mdi-chevron-down"/>-->
 <!--  </v-btn>-->
@@ -27,7 +65,7 @@
 <script setup lang="ts">
 import './assets/css/main.css'
 
-// TODO: vyskakovací okno s kontaktním formulářem po rozkliku :)
+const openDialog = ref<boolean>(false);
 
 const courses = [
   {name: "Sportovní taneční klub", time: "", price: "", desc: "Připojte se k našemu tanečnímu klubu a rozvíjejte své taneční dovednosti v přátelském prostředí. Nabízíme různé styly tance pro všechny úrovně."},
@@ -38,4 +76,5 @@ const courses = [
   {name: "Pronájem sálu", time: "", price: "", desc: "Hledáte ideální prostor pro tanec nebo jinou aktivitu? Náš taneční sál je k dispozici k pronájmu pro Vaše akce."},
 ]
 
+const chosenCourse = ref(courses[0]);
 </script>
