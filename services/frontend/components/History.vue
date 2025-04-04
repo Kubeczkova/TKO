@@ -1,6 +1,6 @@
 <template>
   <v-parallax
-    class="about__parallax"
+    class="history__parallax"
     src="public/img/black-pink.jpg"
   >
     <v-container id="about">
