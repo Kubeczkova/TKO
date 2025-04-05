@@ -7,9 +7,9 @@
     <v-container id="about">
       <v-card class="about">
         <v-card-title class="about__title">Vítejte v tanečním klubu!</v-card-title>
-        <v-card-subtitle class="about__subtitle">Vítejte na webu Tanečního klubu Ostrava!</v-card-subtitle>
+        <v-card-subtitle class="about__subtitle">Objevte kouzlo tance s námi!</v-card-subtitle>
         <v-card-text class="about__text">
-          Objevte kouzlo tance s námi! Ať už jste začátečník nebo zkušený tanečník, v našem klubu najdete místo, kde se můžete rozvíjet, bavit a sdílet svou vášeň pro pohyb. Nabízíme kurzy pro všechny věkové kategorie, od společenských tanců po moderní styly.
+          Ať už jste začátečník nebo zkušený tanečník, v našem klubu najdete místo, kde se můžete rozvíjet, bavit a sdílet svou vášeň pro pohyb. Nabízíme kurzy pro všechny věkové kategorie, od společenských tanců po moderní styly.
           <br><br>
           Přidejte se k nám a nechte tanec proměnit váš život! 💃🕺
           <br><br>

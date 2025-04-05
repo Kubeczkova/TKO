@@ -14,10 +14,10 @@
     <v-card class="pricing-box" @click="openDialog = true; chosenCourse = course">
       <div class="pricing-content">
         <h3 class="pricing-title">{{ course.name }}</h3>
-        <v-card-subtitle>
+        <v-card-subtitle v-if="course.time">
           <div class="pricing__subtitle">{{ course.time }}</div>
         </v-card-subtitle>
-        <v-card-title>
+        <v-card-title v-if="course.price">
           <div class="pricing__price">{{ course.price }}</div>
         </v-card-title>
         <v-card-text v-if="course.desc">

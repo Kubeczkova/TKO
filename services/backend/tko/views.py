@@ -4,6 +4,7 @@ from django.db.models import Q
 from post_office import mail
 
 from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 
 from tko.models import Article, Event, ArticleImage
@@ -49,6 +50,7 @@ class AllArticleListView(ListAPIView):
 
 
 class GalleryView(ListAPIView):
+    permission=[AllowAny]
     queryset = ArticleImage.objects.all().order_by("-article_id", "main")
     serializer_class = ArticleImageSerializer
 

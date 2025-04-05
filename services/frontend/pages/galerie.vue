@@ -47,12 +47,20 @@ interface ArticleImage {
 
 const gallery = ref<ArticleImage[]>([]);
 
-const { error, data } = await useAPI<ArticleImage[]>('load-gallery/', {method: "GET"});
+loadImages();
 
-if ( data.value ){
+async function loadImages(){
+  const { error, data } = await useAPI<ArticleImage[]>('load-gallery/', {method: "GET"});
+
+  if ( data.value ){
     gallery.value = data.value as ArticleImage[];
+  }
+  else if (error.value) {
+    console.error("Error loading gallery:", error.value);
+  }
 }
-else if (error.value) {
-  console.error("Error loading gallery:", error.value);
-}
+
+
+
+
 </script>

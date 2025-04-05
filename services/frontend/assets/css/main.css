@@ -6,7 +6,6 @@
 }
 
 h1 {
-  font-family: 'Futura', sans-serif;
   font-size: 3rem;
   color: #333;
   text-align: center;
@@ -16,15 +15,14 @@ h1 {
 }
 
 h2 {
-  font-family: 'Futura', sans-serif;
   font-size: 1.5rem;
   color: #CF3476;
   text-align: center;
+  word-break: break-word;
   margin-bottom: 2rem;
 }
 
 h3 {
-  font-family: 'Futura', sans-serif;
   font-size: 1.5rem;
   color: #666;
   text-align: center;
@@ -32,7 +30,6 @@ h3 {
 }
 
 h4 {
-  font-family: 'Futura', sans-serif;
   font-size: 1rem;
   color: #666;
   text-align: center;
@@ -40,7 +37,6 @@ h4 {
 }
 
 h5 {
-  font-family: 'Futura', sans-serif;
   font-size: 1rem;
   color: #aaa;
   margin-top: 1rem;
@@ -48,7 +44,7 @@ h5 {
 
 @media (max-width: 600px) {
   h1 {
-    font-size: 2rem; /* Smaller size for mobile */
+    font-size: 1.8rem; /* Smaller size for mobile */
     margin-top: 1.5rem;
   }
 
@@ -61,6 +57,7 @@ h5 {
   min-width: 25rem;
   margin-left: calc(20% - 2.5rem);
   margin-right: calc(20% - 2.5rem);
+  margin-bottom: 3rem;
 }
 
 .app__logo {
@@ -69,30 +66,25 @@ h5 {
 }
 
 .app__title {
-  font-family: 'Futura', sans-serif;
   font-size: 2rem;
   color: #333;
 }
 
 .app__tab {
-  font-family: 'Futura', sans-serif;
   font-size: 2rem;
   color: #CF3476;
 }
 
 .to_left {
-  font-family: 'Futura', sans-serif;
   font-size: 1rem;
 }
 
 .to_right {
-  font-family: 'Futura', sans-serif;
   float: right;
 }
 
 .contact {
   margin: 20px calc(20% - 40px) 50px;
-  min-width: 25rem;
   border-radius: 15px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
@@ -102,12 +94,10 @@ h5 {
   font-size: 3rem;
   color: #333;
   margin-bottom: 1rem;
-  font-family: 'Futura', sans-serif;
   font-weight: bold;
 }
 
 .contact__dialog__title {
-  font-family: 'Futura', sans-serif;
   font-size: 2rem;
   color: #333;
   margin-bottom: 1rem;
@@ -121,6 +111,16 @@ h5 {
 }
 
 @media (max-width: 600px) {
+  .contact__title {
+    font-size: 1.5rem;
+  }
+
+  .contact {
+    min-width: unset;
+    margin: 10px;
+    padding: 1rem;
+  }
+
   .v-dialog > .v-card {
     border-radius: 0 !important;
     height: 100vh;
@@ -134,61 +134,47 @@ h5 {
 }
 
 .articles {
-  margin-left: calc(20% - 2.5rem);
-  margin-right: calc(20% - 2.5rem);
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .article {
-  padding: 10px;
+  padding: 1rem;
   min-width: 40%;
-  border-radius: 15px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   margin-bottom: 1rem;
 }
 
-.article__image {
-  border-radius: 0.5rem;
-}
-
-.carousel__image img {
-  border-radius: 0.5rem;
-  object-fit: contain !important;
-  padding: 1rem;
-}
-
 .article__title {
-  font-family: 'Futura', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #CF3476;
-  text-align: left;
-  margin-top: 0.1rem;
   font-weight: bold;
 }
 
 .article__date {
-  font-family: 'Futura', sans-serif;
   font-size: 0.8rem;
   text-align: left;
 }
 
 .article__text {
-  font-family: 'Futura', sans-serif;
   font-size: 1rem;
-  text-align: left;
-  min-height: 6rem;
-  color: #666;
+  color: #333;
+  line-height: 1.5;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .article__sign {
-  font-family: 'Futura', sans-serif;
+  text-align: right;
   font-size: 1rem;
-  float: right;
-  padding-right: 1rem;
-  color: #333;
+  font-style: italic;
+  color: #555;
 }
 
 .show_more {
-  font-family: 'Futura', sans-serif;
   text-align: center;
   color: #CF3476;
   background: transparent;
@@ -243,7 +229,6 @@ h5 {
 }
 
 .pricing__price {
-  font-family: 'Futura', sans-serif;
   font-size: 3rem;
   font-weight: bold;
   color: #CF3476;
@@ -251,9 +236,9 @@ h5 {
 }
 
 .pricing__subtitle {
-  font-family: 'Futura', sans-serif;
   font-size: 1rem;
   color: #555;
+  word-break: break-word;
   margin-bottom: 0.5rem;
 }
 
@@ -262,9 +247,12 @@ h5 {
     min-width: 100%;
   }
 
-  .pricing-title,
+  .pricing-title {
+    font-size: 1.4rem;
+  }
+
   .pricing-desc {
-    min-height: unset; /* Removes forced height to prevent breakage */
+    min-height: unset;
   }
 }
 
@@ -298,7 +286,6 @@ h5 {
   overflow: hidden;
 }
 
-/* Mobile Styles */
 @media (max-width: 600px) {
   .trainers__parallax {
     max-height: 30rem;
@@ -326,7 +313,6 @@ h5 {
 }
 
 .advantage__title {
-  font-family: 'Futura', sans-serif;
   padding: 0.5rem 0;
   color: #CF3476;
   font-size: 1.5rem;
@@ -335,7 +321,6 @@ h5 {
 }
 
 .advantage__text {
-  font-family: 'Futura', sans-serif;
   padding-bottom: 1rem;
   font-size: 1rem;
   color: #333;
@@ -362,7 +347,7 @@ h5 {
 .about {
   background: transparent;
   box-shadow: none;
-  height: 100%;
+  height: auto;
   max-width: 80%;
   margin: 0 auto;
   text-align: center;
@@ -370,7 +355,7 @@ h5 {
 }
 
 .about__parallax {
-  max-height: 30rem;
+  max-height: 28rem;
   margin-top: 2rem;
 }
 
@@ -381,44 +366,42 @@ h5 {
 
 @media (max-width: 600px) {
   .history__parallax {
-    max-height: 45rem;
+    max-height: 58rem;
   }
 }
 
 .about__title {
-  font-family: 'Futura', sans-serif;
-  font-size: 3rem;
-  text-align: center;
-  width: 100%;
-  display: block;
+  font-size: 2.5rem;
   color: #fff;
   margin-top: 1rem;
   font-weight: bold;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .about__subtitle {
-  font-family: 'Futura', sans-serif;
   color: #FF3D8C;
-  font-size: 1.3rem;
-  text-align: center;
-  width: 100%;
-  display: block;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  word-break: break-word;
   font-weight: bold;
 }
 
 .about__text {
-  font-family: 'Futura', sans-serif;
   color: #ddd;
-  font-size: 1rem;
-  text-align: center;
+  font-size: 1.125rem;
   padding: 0 1rem;
+  line-height: 1.6;
 }
 
 @media (max-width: 600px) {
   .about {
-    max-width: 100%;
+    max-width: 95%;
     padding: 1rem;
+  }
+
+  .about__parallax {
+    min-height: 32rem;
   }
 
   .about__title {
@@ -427,11 +410,11 @@ h5 {
 
   .about__subtitle {
     font-size: 1rem;
+    word-break: break-word;
   }
 
   .about__text {
-    font-size: 1rem;
-    padding: 0 10px;
+    font-size: 0.95rem;
   }
 }
 

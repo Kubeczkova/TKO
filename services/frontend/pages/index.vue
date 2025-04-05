@@ -11,12 +11,12 @@
       </h2>
     </div>
   </v-parallax>
-  <news/>
-  <about/>
-  <courses/>
-  <trainers/>
-  <advantages/>
-  <history/>
+  <lazy-news :for-all="false"/>
+  <lazy-about/>
+  <lazy-courses/>
+  <lazy-trainers/>
+  <lazy-advantages/>
+  <lazy-history/>
 </template>
 
 <script setup lang="ts">

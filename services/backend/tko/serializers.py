@@ -19,7 +19,7 @@ class ArticleImageSerializer(serializers.ModelSerializer):
 
     @staticmethod
     def get_title(obj):
-        return obj.article.title
+        return obj.article.title if obj.article else ''
 
 
 class ArticleListSerializer(serializers.ModelSerializer):
@@ -38,7 +38,8 @@ class ArticleListSerializer(serializers.ModelSerializer):
     @staticmethod
     def get_image(obj):
         main_image = obj.images.order_by("main").first()
-        return main_image.image.url if main_image else None
+        url = 'http://localhost:8000'
+        return f"{url}{main_image.image.url}" if main_image else None
 
 
 class EventListSerializer(serializers.ModelSerializer):
