@@ -1,11 +1,11 @@
 <template>
   <v-parallax class="trainers__parallax" src="public/img/black-pink.jpg">
-    <v-container id="trainers">
-      <v-card class="trainers pa-4">
-        <v-card-title class="about__title ">Naši trenéři a lektoři</v-card-title>
-        <v-card-subtitle class="about__subtitle ">Seznamte se s námi!</v-card-subtitle>
+    <v-container>
+      <v-card class="about" id="trainers">
+        <v-card-title class="about__title">Naši trenéři a lektoři</v-card-title>
+        <v-card-subtitle class="about__subtitle">Seznamte se s námi!</v-card-subtitle>
 
-        <v-carousel cycle interval="4000" hide-delimiters show-arrows="hover">
+        <v-carousel style="height: auto" cycle interval="4000" hide-delimiters :show-arrows="trainerGroups.length > 1 ? 'hover' : false">
           <v-carousel-item v-for="(group, index) in trainerGroups" :key="index">
             <v-row justify="center">
               <v-col
@@ -25,8 +25,8 @@
                 >
                   <v-img :src="lector.img" cover></v-img>
                 </v-avatar>
-                <v-card-subtitle class="about__subtitle">{{ lector.name }}</v-card-subtitle>
-                <v-card-text class="about__text">{{ lector.desc }}</v-card-text>
+                <div class="about__subtitle">{{ lector.name }}</div>
+                <div class="about__text">{{ lector.desc }}</div>
               </v-col>
             </v-row>
           </v-carousel-item>
@@ -63,6 +63,11 @@ const lectors = [
     name: "Leona Hruštincová",
     img: "/trainers/img.png",
     desc: "Lektorka - tance pro děti",
+  },
+  {
+    name: "Ondřej Gilar",
+    img: "/trainers/img.png",
+    desc: "Trenér - latinskoamerické tance a Pro-AM",
   },
 ]
 

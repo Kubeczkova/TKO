@@ -1,44 +1,47 @@
 <template>
   <h1>Galerie</h1>
-  <v-row>
-    <v-col
+  <div class="masonry-gallery">
+    <div
+      class="masonry-item"
       v-for="(photo, index) in gallery"
       :key="index"
-      cols="4"
-      style="padding: 0;"
+      @click="openCarousel(photo)"
     >
       <v-img
-        :lazy-src="photo.image"
         :src="photo.image"
-        aspect-ratio="1"
+        :lazy-src="photo.image"
+        aspect-ratio=""
+        class="article__image rounded-lg"
         cover
-        @click="showCarousel = true"
       >
-        <template v-slot:placeholder>
-          <v-row>
-            <v-progress-circular
-              color="grey-lighten-5"
-              indeterminate
-            ></v-progress-circular>
+        <template #placeholder>
+          <v-row justify="center" align="center" style="height: 100px;">
+            <v-progress-circular indeterminate color="grey-lighten-1" />
           </v-row>
         </template>
-        <v-dialog v-model="showCarousel">
-          <dialog-carousel
-            :image="photo.image"
-            :images="gallery"
-            :title="photo.title"
-            @isActive="showCarousel = false"
-          />
-        </v-dialog>
       </v-img>
-    </v-col>
-  </v-row>
+    </div>
+    <v-dialog v-model="showCarousel">
+      <dialog-carousel
+        v-if="selectedImage"
+        :image="selectedImage"
+        :images="gallery"
+        @isActive="showCarousel = false"
+      />
+    </v-dialog>
+  </div>
 </template>
 <script setup lang="ts">
 import './assets/css/main.css'
 import { useAPI } from "~/composables/useAPI";
 
 const showCarousel = ref(false);
+const selectedImage = ref<ArticleImage | null>(null);
+
+function openCarousel(photo: ArticleImage) {
+  selectedImage.value = photo;
+  showCarousel.value = true;
+}
 
 interface ArticleImage {
   image: string;

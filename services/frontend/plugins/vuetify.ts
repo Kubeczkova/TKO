@@ -62,6 +62,10 @@ export default defineNuxtPlugin((app) => {
         cs: {
           calendar: {
             today: "dnes",
+          },
+          carousel: {
+            next: "další",
+            prev: "předchozí",
           }
         }
       }

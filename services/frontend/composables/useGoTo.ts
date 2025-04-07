@@ -7,30 +7,35 @@ export async function useGoTo(
 ): Promise<void> {
   const router = useRouter();
   const route = useRoute();
-  const yOffset = props?.offset ?? -80;
+  const yOffset = props?.offset ?? -150;
 
   const hash = selector.startsWith("#") ? selector : "";
-  const path = selector.startsWith("/") ? selector : route.path + hash;
+  const basePath = route.path.split("#")[0];
+  const targetPath = selector.startsWith("/") ? selector : basePath + hash;
+  const [pathOnly, hashOnly] = targetPath.split("#");
 
-  // If navigating to another page
-  if (route.path !== path.split("#")[0]) {
-    await router.push(path);
-    await nextTick(); // Ensure DOM updates
+  if (route.path !== pathOnly) {
+    // Navigate to target page
+    await router.push(pathOnly + (hashOnly ? `#${hashOnly}` : ""));
+    await nextTick();
 
-    // Wait for the element to exist before scrolling
-    try {
-      const element = await waitForElement(hash);
-      scrollToElement(element, yOffset);
-    } catch (error) {
-      console.warn(error);
+    if (hashOnly) {
+      try {
+        const element = await waitForElement(`#${hashOnly}`);
+        scrollToElement(element, yOffset);
+      } catch (err) {
+        console.warn(err);
+      }
     }
   } else {
-    // If already on the correct page, scroll immediately
-    try {
-      const element = await waitForElement(hash);
-      scrollToElement(element, yOffset);
-    } catch (error) {
-      console.warn(error);
+    // Same page — scroll directly
+    if (hashOnly || selector.startsWith("#")) {
+      try {
+        const element = await waitForElement(`#${hashOnly ?? selector}`);
+        scrollToElement(element, yOffset);
+      } catch (err) {
+        console.warn(err);
+      }
     }
   }
 }

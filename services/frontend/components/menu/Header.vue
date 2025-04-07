@@ -9,13 +9,15 @@
           Taneční klub Ostrava
         </v-app-bar-title>
 
-        <v-tabs v-model="currentTab" class="d-none d-sm-flex app__tab">
+        <v-tabs
+          v-if="$vuetify.display.smAndUp"
+          v-model="currentTabName"
+          class="app__tab"
+        >
           <v-tab
             v-for="(tab, index) in tabs"
             :key="index"
-            :text="tab.name"
             :value="tab.name"
-            :href="tab.href ? tab.href : undefined"
             @click="handleNavigation(tab)"
           >
             {{ tab.name }}
@@ -48,37 +50,93 @@
 </template>
 
 <script setup lang="ts">
-import { useGoTo } from "~/composables/useGoTo";
-import { useRoute } from "#vue-router";
+import { computed, onMounted, watch, nextTick } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
-const currentTab = ref({ name: "O nás", ref: "#about", href: "o-nas" });
+const router = useRouter();
 
 const homeTabs = [
-  { name: "O nás", ref: "#about", href: "" },
-  { name: "Trenéři", ref: "#trainers", href: "" },
-  { name: "Kurzy", ref: "#courses", href: "" },
-  { name: "Galerie", ref: "", href: "/galerie" },
-  { name: "Aktuality", ref: "#article", href: "" },
-  { name: "Kontakty", ref: "", href: "/kontakty" },
+  { name: "O nás", href: "#about" },
+  { name: "Trenéři", href: "#trainers" },
+  { name: "Kurzy", href: "#courses" },
+  { name: "Galerie", href: "/galerie" },
+  { name: "Aktuality", href: "#article" },
+  { name: "Kontakty", href: "/kontakty" },
 ];
 
 const otherTabs = [
-  { name: "O nás", ref: "", href: "/" },
-  { name: "Trenéři", ref: "", href: "/" },
-  { name: "Kurzy", ref: "", href: "/" },
-  { name: "Galerie", ref: "", href: "/galerie" },
-  { name: "Aktuality", ref: "", href: "/aktuality" },
-  { name: "Kontakty", ref: "", href: "/kontakty" },
+  { name: "O nás", href: "/#about" },
+  { name: "Trenéři", href: "/#trainers" },
+  { name: "Kurzy", href: "/#courses" },
+  { name: "Galerie", href: "/galerie" },
+  { name: "Aktuality", href: "/aktuality" },
+  { name: "Kontakty", href: "/kontakty" },
 ];
 
 const tabs = computed(() => (route.path === "/" ? homeTabs : otherTabs));
 
-const handleNavigation = (tab: any) => {
-  if (tab.ref) {
-    useGoTo(tab.ref);
-  } else if (tab.href) {
-    window.location.href = tab.href;
+type Tab = {
+  name: string;
+  href: string;
+};
+
+const currentTab = ref<Tab>({ name: "O nás", href: "#about" });
+
+const currentTabName = computed<string>({
+  get: () => currentTab.value.name,
+  set: (newName: string) => {
+    const tab = tabs.value.find(t => t.name === newName);
+    if (tab) handleNavigation(tab);
+  }
+});
+
+const handleNavigation = async (tab: { name: string, href: string }) => {
+  currentTab.value = tab;
+
+  if (tab.href.startsWith("#")) {
+    await scrollToHash(tab.href);
+  } else if (tab.href.startsWith("/#")) {
+    await router.push(tab.href);
+  } else {
+    await router.push(tab.href);
   }
 };
+
+async function scrollToHash(hash: string) {
+  await nextTick();
+
+  const el = document.querySelector(hash);
+  if (el) {
+    const yOffset = -80;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+}
+
+onMounted(() => {
+  if (route.path === "/" && route.hash) {
+    const match = homeTabs.find(tab => tab.href === route.hash);
+    if (match) {
+      currentTab.value = match;
+    }
+    scrollToHash(route.hash);
+  }
+});
+
+watch(() => route.hash, (newHash) => {
+  if (route.path === "/" && newHash) {
+    const match = homeTabs.find(tab => tab.href === newHash);
+    if (match) currentTab.value = match;
+    scrollToHash(newHash);
+  }
+});
+
+watch(() => route.path, (newPath) => {
+  if (newPath !== "/") {
+    const match = otherTabs.find(tab => tab.href === newPath || tab.href === `${newPath}${route.hash}`);
+    if (match) currentTab.value = match;
+  }
+}, { immediate: true });
+
 </script>

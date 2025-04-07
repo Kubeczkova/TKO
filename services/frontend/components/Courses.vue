@@ -38,29 +38,28 @@
     transition="dialog-bottom-transition"
   >
     <v-card class="contact pa-4">
-      <v-card-title class="contact__dialog__title d-flex align-center">
+      <h1 class="contact__dialog__title d-flex align-center">
         <span class="flex-grow-1 text-center" style="margin-left: 40px;">{{ chosenCourse.name }}</span>
         <v-btn icon="mdi-close" variant="text" @click="openDialog = false"></v-btn>
-      </v-card-title>
+      </h1>
+        <v-card-text v-if="chosenCourse.desc" class="text-center">
+          <div class="pricing__subtitle text-body-1">{{ chosenCourse.desc }}</div>
+        </v-card-text>
 
-      <v-card-text v-if="chosenCourse.desc" class="text-center">
-        <div class="pricing__subtitle text-body-1">{{ chosenCourse.desc }}</div>
-      </v-card-text>
-
-      <v-divider class="my-4"></v-divider>
+        <v-divider class="my-4"></v-divider>
 
       <v-card-title class="contact__dialog__title text-center">
         Kontaktujte nás!
       </v-card-title>
 
-      <dialog-contact-form class="mt-2" />
-    </v-card>
-  </v-dialog>
-</template>
+        <dialog-contact-form class="mt-2" />
+        </v-card>
+      </v-dialog>
+    </template>
 
-<!--  <v-btn to="/kurzy" class="show_more">-->
-<!--    <v-icon icon="mdi-chevron-down"/>Více informací<v-icon icon="mdi-chevron-down"/>-->
-<!--  </v-btn>-->
+<!--    <v-btn to="/kurzy" class="show_more">-->
+<!--      <v-icon icon="mdi-chevron-down"/>Více informací<v-icon icon="mdi-chevron-down"/>-->
+<!--    </v-btn>-->
 </template>
 <script setup lang="ts">
 import './assets/css/main.css'

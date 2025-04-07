@@ -4,8 +4,8 @@
     src="public/dark-dance.jpg"
     scale="0.8"
   >
-    <v-container id="about">
-      <v-card class="about">
+    <v-container>
+      <v-card class="about" id="about">
         <v-card-title class="about__title">Vítejte v tanečním klubu!</v-card-title>
         <v-card-subtitle class="about__subtitle">Objevte kouzlo tance s námi!</v-card-subtitle>
         <v-card-text class="about__text">

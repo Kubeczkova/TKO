@@ -35,11 +35,14 @@ class ArticleListSerializer(serializers.ModelSerializer):
     def get_date(obj):
         return obj.date.strftime("%-d. %-m. %Y")
 
-    @staticmethod
-    def get_image(obj):
+    def get_image(self, obj):
         main_image = obj.images.order_by("main").first()
-        url = 'http://localhost:8000'
-        return f"{url}{main_image.image.url}" if main_image else None
+        if main_image:
+            return ArticleImageSerializer(main_image, context=self.context).data
+        return {
+            "image": "http://localhost:8000/media/images/image.jpg",
+            "title": "Výchozí obrázek",
+        }
 
 
 class EventListSerializer(serializers.ModelSerializer):
