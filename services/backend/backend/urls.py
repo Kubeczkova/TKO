@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from debug_toolbar.toolbar import debug_toolbar_urls
 
 from django.conf.urls.static import static
@@ -25,6 +25,7 @@ from tko.views import ContactView, NewArticleListView, AllArticleListView, Event
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('shop/', include("shop.urls")),
     path('create-contact/', ContactView.as_view(), name='create-contact'),
     path('load-articles/', NewArticleListView.as_view(), name='load-articles'),
     path('load-all-articles/', AllArticleListView.as_view(), name='load-all-articles'),

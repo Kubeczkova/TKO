@@ -31,27 +31,29 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = env.str('SECRET_KEY', 'django-insecure-x&7qy$na7*@u_4(izkfaz2yiea9+t(nf&#p9cnlq6x)_)jkacf')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+DEBUG_TOOLBAR = True
 DEBUG_TOOLBAR_CONFIG = {
-    "SHOW_TOOLBAR_CALLBACK": lambda request: False,
+    "INTERCEPT_REDIRECTS": False,
+    "SHOW_TOOLBAR_CALLBACK": lambda request: True,
     "IS_RUNNING_TESTS": False,
 }
 
 DEBUG_TOOLBAR_PANELS = [
-    'debug_toolbar.panels.history.HistoryPanel',
-    'debug_toolbar.panels.versions.VersionsPanel',
+    # 'debug_toolbar.panels.history.HistoryPanel',
+    # 'debug_toolbar.panels.versions.VersionsPanel',
     'debug_toolbar.panels.timer.TimerPanel',
-    'debug_toolbar.panels.settings.SettingsPanel',
-    'debug_toolbar.panels.headers.HeadersPanel',
-    'debug_toolbar.panels.request.RequestPanel',
+    # 'debug_toolbar.panels.settings.SettingsPanel',
+    # 'debug_toolbar.panels.headers.HeadersPanel',
+    # 'debug_toolbar.panels.request.RequestPanel',
     'debug_toolbar.panels.sql.SQLPanel',
-    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
-    'debug_toolbar.panels.templates.TemplatesPanel',
-    'debug_toolbar.panels.alerts.AlertsPanel',
-    'debug_toolbar.panels.cache.CachePanel',
-    'debug_toolbar.panels.signals.SignalsPanel',
-    'debug_toolbar.panels.redirects.RedirectsPanel',
-    'debug_toolbar.panels.profiling.ProfilingPanel',
+    # 'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    # 'debug_toolbar.panels.templates.TemplatesPanel',
+    # 'debug_toolbar.panels.alerts.AlertsPanel',
+    # 'debug_toolbar.panels.cache.CachePanel',
+    # 'debug_toolbar.panels.signals.SignalsPanel',
+    # 'debug_toolbar.panels.redirects.RedirectsPanel',
+    # 'debug_toolbar.panels.profiling.ProfilingPanel',
 ]
 
 ALLOWED_HOSTS = [
@@ -77,6 +79,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tko.apps.TkoConfig',
+    'shop.apps.ShopConfig',
     'debug_toolbar',
     'rest_framework',
     'post_office',
