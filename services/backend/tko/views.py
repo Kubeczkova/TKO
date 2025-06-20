@@ -1,5 +1,5 @@
 from django.utils import timezone
-from django.db.models import Q
+from django.db.models import Q, Prefetch
 
 from post_office import mail
 
@@ -46,7 +46,9 @@ class AllArticleListView(ListAPIView):
     def get_queryset(self):
         return Article.objects.filter(
             Q(active_to__gte=timezone.now()) | Q(active_to__isnull=True)
-        ).order_by('-date')
+        ).order_by('-date').prefetch_related(
+            Prefetch('images', queryset=ArticleImage.objects.order_by('-main'))
+        )
 
 
 class GalleryView(ListAPIView):

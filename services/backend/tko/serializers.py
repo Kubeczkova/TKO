@@ -36,7 +36,8 @@ class ArticleListSerializer(serializers.ModelSerializer):
         return obj.date.strftime("%-d. %-m. %Y")
 
     def get_image(self, obj):
-        main_image = obj.images.order_by("main").first()
+        main_image = next(iter(obj.images.all()), None)
+
         if main_image:
             return ArticleImageSerializer(main_image, context=self.context).data
         return {
